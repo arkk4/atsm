@@ -1,37 +1,33 @@
-## Welcome to GitHub Pages
+## ADVANCED TECHSUPPORT GUIDES
 
-You can use the [editor on GitHub](https://github.com/arkk4/atsm/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+Тут будут собираться заметки и мануалы по рабочим вопросам
+Страницы с названием КПД (Кратко Про Диагностику) будут содержать в себе мануалы и гайдлайны по решению рабочих вопросов (Начинать будем с интернета в целом и работы со свичами в частности)
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### Нахуя а главное зачем?
 
-### Markdown
+Во имя систематизации рабочих вопросов и простоты доступа к необходимой инфе я решил использовать свои рабочие заметки, переоформить под данный формат и выбросить все это дело в паблик
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+```
+Как это будет выглядеть
 
-```markdown
-Syntax highlighted code block
+# Заголовок 1
+## Заголовок 2
+### Заголовок 3
 
-# Header 1
-## Header 2
-### Header 3
+- Список
+- с точками
 
-- Bulleted
-- List
+1. Нумерованый
+2. Список
 
-1. Numbered
-2. List
+**Жирный** и _Италик_ и `команда\код` текс
 
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+[Ссылка](url) и ![картинка](src)
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+### Помощь и поддержка
 
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/arkk4/atsm/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+Хочешь сказать спасибо? ты всегда можешь подойти ко мне на смене
+Хочешь купить мне шаурмы или финансово помочь перенести этот сайт на нормальный хостинг -- 5355 5712 5776 8424
+--------
+Информация недостоверна или не актуальна или имеются пожелания/предложения? Ты всегда можешь сообщить мне об этом [Моя Телега](https://t.me/tme3arkk4) или всегда можно подойти ко мне на смене
