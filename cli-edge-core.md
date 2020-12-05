@@ -89,12 +89,21 @@ test cable-diagnostics tdr int et 1/N
 show cable-diagnostics tdr int et 1/N
 ```
 
+#### Тест кабеля (ESC3510-28T и новее)
+```
+test cable-diagnostics int et 1/N
+
+show cable-diagnostics int et 1/N
+```
+
+
  Возможные результаты:
 - ok(0) - кабель целый
 - short(*) - короткое замыкание
 - open(*) - возможн обрыв или повреждении изоляции
 - no cable(*) - обрыв
    где * - приблизительное расстояние до места повреждения.
+
 
 
 ## MAC-адреса
