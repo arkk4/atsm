@@ -3,20 +3,25 @@
 
 ### Управление Коммутатором
 #### Информация по коммутатору
-`show system`
+```
+show system
+```
 
 #### Загрузка процессора коммутатора (ES3528M и новее)
-`show process cpu`
+```
+show process cpu
+```
 #### Диспетчер задач свича (ESC3510-28T и новее)
-`show process cpu task`
+```
+show process cpu task
+```
 #### Логирование
-*
-`show log ram` Логи из ОЗУ (инфа храится до ребута)
-*
-`show log flash` Логи из ПЗУ (Работают выборочно, полезная инфа бывает редко)
+- ```show log ram``` Логи из ОЗУ (инфа храится до ребута)
+
+- ```show log flash``` Логи из ПЗУ (Работают выборочно, полезная инфа бывает редко)
 
 #### Текущая конфигурация коммутатора
-`show running-config`
+```show running-config```
 
 #### Перезагрузить коммутатор
 ```
@@ -28,18 +33,18 @@ y
 
 ### Интерфейсы
 #### Показать статистику по всем интерфейсам
-`show interfaces brief`
+```show interfaces brief```
 #### Показать статистику по определенному интерфейсу (1/N - номер порта)
-`show interface status ethernet 1/N`
+```show interface status ethernet 1/N```
 #### Показать статистику счетчиков по определенному интерфейсу - ошибки (1/N - номер порта)
-`show interface counters ethernet 1/N`
+```show interface counters ethernet 1/N```
 ### Сбросить статистику счетчиков по определенному интерфейсу - ошибки (1/N - номер порта)
-`clear counters ethernet 1/N`
+```clear counters ethernet 1/N```
 #### Замер оптического сигнала
 ###### Работает на свичах ES3528M и новее, на ECS4120-28F замер возможен только с комбо портов
-`show interface transceiver ethernet 1/N`
+```show interface transceiver ethernet 1/N```
 
-Если вывыд содержит просто `Ehternet 1/N` SFP не поддерживает замер
+Если вывыд содержит просто ```Ehternet 1/N``` SFP не поддерживает замер
 
 MAC-адреса
 Показать mac-адреса
