@@ -82,7 +82,7 @@ show mac-address-table
 ```
 show mac-address-table interface ethernet 1/N
 ```
-###### Аналогично можно просмотреть во влане
+##### Аналогично можно просмотреть во влане
 ```
 show mac-address-table vlan NNN  
 ```
