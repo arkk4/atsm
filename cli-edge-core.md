@@ -106,7 +106,7 @@ show cable-diagnostics int et 1/N
 
 
 
-## MAC-адреса
+### MAC-адреса
 #### Показать mac-адреса
 ```
 show mac-address-table

@@ -12,6 +12,7 @@
 
 #### КПД
 [КПД#0 - EDGE-CORE -- Список команд](http://ats.arkk4.com/cli-edge-core)
+[КПД#0 - DLINK -- Список команд](http://ats.arkk4.com/cli-dlink))
 
 #### Ссылки
 
