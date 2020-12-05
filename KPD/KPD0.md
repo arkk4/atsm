@@ -42,7 +42,10 @@ reload
 
 y
  ```
-
+#### Сохранить Конфигурацию
+```
+copy running-config startup-config
+```
 
 ### Интерфейсы (1/N - номер порта)
 #### Показать статистику по всем интерфейсам
@@ -73,6 +76,27 @@ Ehternet 1/N
 ```
 SFP не поддерживает замер
 
+#### настроить port monitor (N - порт на который будет зеркалироваться трафик, Z - порт абонента трафик которого будем зеркалировать)
+```
+interface ethernet 1/N port monitor
+ethernet 1/Z both
+```
+
+#### Тест кабеля (ES3528M)
+```
+test cable-diagnostics tdr int et 1/N
+
+show cable-diagnostics tdr int et 1/N
+```
+
+ Возможные результаты:
+- ok(0) - кабель целый
+- short(*) - короткое замыкание
+- open(*) - возможн обрыв или повреждении изоляции
+- no cable(*) - обрыв
+   где * - приблизительное расстояние до места повреждения.
+
+
 ## MAC-адреса
 #### Показать mac-адреса
 ```
@@ -102,120 +126,11 @@ interface ethernet 1/N
 port security max-mac-count 0
 port security max-mac-count 10
 ```
-## Порты
-Порт UP (поднять программно порт)
-config
-interface ethernet X/X
-no shutdown
-exit
-Порт DOWN (Выключить программно порт)
-config
-interface ethernet 1/X
-shutdown
-exit
-Перебить порт с uplink на абонентский, на 28 портовом коммутаторе (как правило для портов 25,26,27,28)
-configure
-interface ethernet 1/###_номер_порта
-switchport multicast packet-rate 64
-switchport broadcast packet-rate 64
-switchport mode access
-no ip dhcp snooping trust
-ip arp inspection trust
-ip arp inspection limit rate 1
-no switchport acceptable-frame-types
-switchport allowed vlan add ###_нужный_vlan
-switchport native vlan ###_нужный_vlan
-switchport allowed vlan remove (XXX,XXX,XXX,... Вланы которые сейчас есть на порту)
-port security max-mac-count 10
-no port security action
-ip igmp max-groups 10
-ip igmp max-groups action replace
-mvr type receiver
-end
-copy running-config startup-config
-startup1.cfg
-Перебить порт с uplink на абонентский, на 10 и 26 портовом коммутаторе (как правило для портов 9,10 или 26,26)
-configure
-interface ethernet 1/###_номер_порта
-switchport broadcast
-no ip dhcp snooping trust
-no switchport acceptable-frame-types
-switchport allowed vlan add ###_нужный_vlan
-switchport native vlan ###_нужный_vlan
-switchport allowed vlan remove (XXX,XXX,XXX,... Вланы которые сейчас есть на порту)
-port security max-mac-count 10
-no port security action
-ip igmp max-groups 10
-ip igmp max-groups action replace
-mvr type receiver
-end
-copy running-config startup-config
-startup1.cfg
-Изменить абонентский VLAN на поту
-configure
-interface ethernet 1/X
-switchport allowed vlan add ХХХ - Нужный VLAN
-switchport native vlan ХХХ - Нужный VLAN
-switchport allowed vlan remove ХХХ - Текущий VLAN
-end
-copy running-config startup-config
-startup1.cfg
-Перебить порт под управляемый коммутатор
-на 26ти портовых коммутаторах
-no port security max-mac-count
-no port security action
-no ip igmp filter
-no ip igmp max-groups
-ip igmp max-groups action deny
-no switchport broadcast
-switchport acceptable-frame-types tagged
-switchport mode trunk
-switchport allowed vlan add **вланы прописаны на апоинке** tagged
-switchport native vlan 300
-switchport allowed vlan remove 1
-spanning-tree spanning-disabled
-pppoe intermediate-agent port-enable
-pppoe intermediate-agent trust
-mvr type source
-на 28ми портовых коммутаторах
-no port security max-mac-count
-no port security action
-no ip igmp filter
-no ip igmp max-groups
-ip igmp max-groups action deny
-no switchport broadcast
-switchport allowed vlan add 1 untagged
-switchport acceptable-frame-types tagged
-switchport mode trunk
-switchport allowed vlan add **вланы прописанные на аплинке** tagged
-spanning-tree spanning-disabled
-pppoe intermediate-agent port-enable
-pppoe intermediate-agent trust
-mvr type source
-—-
-Диагностика повреждения кабеля на **28 портовых** коммутаторах
-test cable-diagnostics tdr int et 1/X  (**тест**)
-show cable-diagnostics tdr int et 1/X  (**просмотр результатов**)
 
- Возможные результаты:
-- ok(0) - кабель целый
-- short(*) - короткое замыкание
-- open(*) - возможн обрыв или повреждении изоляции
-- no cable(*) - обрыв
-   где * - приблизительное расстояние до места повреждения.
 
-создать mvr vlan
-conf
-vlan data
-vlan **нужный влан name iptv**нужный влан m e s a
-ex
-interface eth 1/28 - порт ап линка
-switch allowed vlan add **нужный влан tag
-ex
-mvr vlan **нужный влан
-настроить port monitor
-con in eth 1/1 port monitor ethernet 1/3 both
-в 1 порт включаем ноут и удаляем native vlan, порт 3 это абонента
+
+
+
 
 Dlink
 Команды для Dlink
