@@ -11,7 +11,7 @@
 Меню (Будет дополнятся по мере добавления)
 
 #### КПД
-[КПД#0 - EDGE-CORE -- Список](http://ats.arkk4.com/cli-edge-core)
+[КПД#0 - EDGE-CORE -- Список команд](http://ats.arkk4.com/cli-edge-core)
 
 #### Ссылки
 
