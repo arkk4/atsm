@@ -16,21 +16,26 @@ show process cpu
 show process cpu task
 ```
 #### Логирование
-- ```
+-
+```
 show log ram
-
+```
 Логи из ОЗУ (инфа храится до ребута)
 
-- ```
+-
+```
 show log flash
-
+```
 Логи из ПЗУ (Работают выборочно, полезная инфа бывает редко)
 
 #### Текущая конфигурация коммутатора
 ```
 show running-config
 ```
-
+#### Текущая конфигурация порта (ES3528M и новее)
+```
+show running-config interface ethernet 1/N
+```
 #### Перезагрузить коммутатор
 ```
 reload
@@ -39,20 +44,20 @@ y
  ```
 
 
-### Интерфейсы
+### Интерфейсы (1/N - номер порта)
 #### Показать статистику по всем интерфейсам
 ```
 show interfaces brief
 ```
-#### Показать статистику по определенному интерфейсу (1/N - номер порта)
+#### Показать статистику по определенному интерфейсу
 ```
 show interface status ethernet 1/N
 ```
-#### Показать статистику счетчиков по определенному интерфейсу - ошибки (1/N - номер порта)
+#### Показать статистику счетчиков по определенному интерфейсу
 ```
 show interface counters ethernet 1/N
 ```
-### Сбросить статистику счетчиков по определенному интерфейсу - ошибки (1/N - номер порта)
+#### Сбросить статистику счетчиков по определенному интерфейсу
 ```
 clear counters ethernet 1/N
 ```
@@ -69,50 +74,35 @@ Ehternet 1/N
 SFP не поддерживает замер
 
 ## MAC-адреса
-Показать mac-адреса
+#### Показать mac-адреса
+```
 show mac-address-table
-Увеличить предел mac-адресов (N - максимально количество mac-ов)
-config
-interface ethernet 1/Xsud
-port security max-mac-count N
-exit
-copy running-config startup-config
-Очистить 1 mac-адрес
-config
-no mac-address-table static XX-XX-XX-XX-XX-XX vlan XXX
-Очистить все mac-адреса с порта (X - номер порта)
-config
-interface ethernet 1/X
-port security max-mac-count ТОТ_ЖЕ_ПРЕДЕЛ_АДРЕСОВ
-exit
-exit
+```
+#### Показать mac-адреса на порту
+```
+show mac-address-table interface ethernet 1/N
+```
+###### Аналогично можно просмотреть во влане
+```
+show mac-address-table vlan NNN  
+```
 
-IPTV
-Включить iptv на порту **ТОЛЬКО ДЛЯ МУЛЬТИКАСТА** (1/X - номер порта)
-config
-interface ethernet 1/X
-ip igmp max-groups 10
-ip igmp max-groups action replace
-mvr type receiver
-exit
-copy running-config startup-config
-Выключить iptv на порту **ТОЛЬКО ДЛЯ МУЛЬТИКАСТА** (1/X - номер порта)
-config
-interface ethernet 1/X
-no ip igmp max-groups
-ip igmp max-groups action den
-no mvr type
-exit
-copy running-config startup-config
-Расширение IGMP max-groups **ТОЛЬКО ДЛЯ МУЛЬТИКАСТА** (Если больше одной IPTV приставки; 1/X - номер порта)
-config
-interface ethernet 1/X
-ip igmp max-groups 5
-exit
-copy running-config startup-config
-Показать какой поток multicast вещается на порт **ТОЛЬКО ДЛЯ МУЛЬТИКАСТА**
-show mac-address-table multicast
-Порты
+#### Увеличить предел mac-адресов (Y - максимально количество mac-ов)
+```
+interface ethernet 1/N
+port security max-mac-count Y
+```
+#### Очистить 1 mac-адрес
+```
+no mac-address-table static XX-XX-XX-XX-XX-XX vlan NNN
+```
+#### Очистить все mac-адреса с порта
+```
+interface ethernet 1/N
+port security max-mac-count 0
+port security max-mac-count 10
+```
+## Порты
 Порт UP (поднять программно порт)
 config
 interface ethernet X/X
