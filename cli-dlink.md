@@ -59,10 +59,18 @@ show fdb
 ```
 show fdb port N
 ```
-show fdb mac_address <macaddr> - ищет конкретный мак в таблице
-show fdb vlan <vlan_name> - показывает все маки в конкретном влане
-show vlan - показывает все вланы и порты на которые они спущены
-show ports - показывает линки на всех портах
-show ports <port> - показывает линк на конкретном порту
-show switch - инфа по коммутатору
-show error ports <portlist> - показывает кол-во ошибок на порту
+#### Показать таблицу маков в определенном влане (XYZ - имя влана, NNN - числовой тэг)
+```
+show fdb vlan XYZ
+```
+```
+show fdb vlanid NNN
+```
+#### Поиск определенного мака
+```
+show fdb mac_address XXXXXXXXXXXX
+```
+#### Просмотр всех вланов на свиче
+```
+show vlan
+```
