@@ -47,6 +47,10 @@ config ports N description 'ОПИСАНИЕ ТУТ'
 ```
 show ports description
 ```
+#### Показать загрузку порта
+```
+show utilization ports N
+```
 #### Показать статистику по определенному интерфейсу
 ```
 show ports N details
