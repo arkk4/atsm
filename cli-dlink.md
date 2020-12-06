@@ -18,6 +18,10 @@ show utilization dram
 ```
 show log
 ```
+#### Просмотр текущего времени на свиче (Крайне полезно при работе с логами)
+```
+show time
+```
 #### Текущая конфигурация коммутатора
 ```
 show config effective
@@ -27,6 +31,18 @@ show config effective
 save
 ```
 ### Интерфейсы
+#### Положить порт
+```
+config ports N state disable
+```
+#### Поднять порт
+```
+config ports N state enable
+```
+#### Добавить описание порта
+```
+config ports N description 'ОПИСАНИЕ ТУТ'
+```
 #### Показать статистику по всем интерфейсам
 ```
 show ports description
@@ -39,7 +55,6 @@ show ports N details
 ```
 show error ports N
 ```
-
 #### Очистить ошибки на интерфейсе
 ```
 clear counters ports N
