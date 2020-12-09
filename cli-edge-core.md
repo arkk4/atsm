@@ -171,3 +171,22 @@ interface ethernet 1/N
 port security max-mac-count 0
 port security max-mac-count 10
 ```
+### MULTICAST
+#### Включить Мультикаст на порту
+```
+interface ethernet 1/N
+ip igmp max-groups 10
+ip igmp max-groups action replace
+mvr type receiver
+```
+#### Выключить Мультикаст на порту
+```
+interface ethernet 1/N
+no ip igmp max-groups
+ip igmp max-groups action den
+no mvr type
+```
+#### Просмотр Мультикаст потоков на портах
+```
+show mac-address-table multicast
+```
