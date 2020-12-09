@@ -183,7 +183,7 @@ mvr type receiver
 ```
 interface ethernet 1/N
 no ip igmp max-groups
-ip igmp max-groups action den
+ip igmp max-groups action deny
 no mvr type
 ```
 #### Просмотр Мультикаст потоков на портах
