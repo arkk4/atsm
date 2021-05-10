@@ -1,8 +1,3 @@
----
-layout: page
-title: "BDCOM"
-permalink: /cli-bdcom/
----
 
 # Список команд
 ## BDCOM
